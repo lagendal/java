@@ -82,6 +82,13 @@ public class Main {
             System.out.print ("Рост в дюймах: ");
             System.out.println(100*height/2.54);
 
+        Scanner s = new
+                Scanner (System.in);
+        System.out.println("Введите год");
+        int year = s();
+
+        if (s%4=0)
+
         float usd=convertBYNtoUSD (10.5f);
         System.out.println(usd);
     }
