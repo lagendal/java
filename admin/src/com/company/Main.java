@@ -2,6 +2,8 @@ package com.company;
 
 import com.company.Collections.ProductCollection;
 import com.company.Models.Product;
+import com.company.handlers.GetProductsHandler;
+import com.company.handlers.SignInHandler;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -26,7 +28,8 @@ public class Main {
             e.printStackTrace();
         }
         assert server != null;
-        server.createContext("/signin", new MyHandler());
+        server.createContext("/signin", new SignInHandler());
+        server.createContext("/getproducts", new GetProductsHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
 
