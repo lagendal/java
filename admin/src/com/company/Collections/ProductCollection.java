@@ -25,14 +25,19 @@ public class ProductCollection {
         }
         return products;
     }
-    public static int addProduct (Product product) throws SQLException {
+    public static long addProduct (Product product) throws SQLException {
         PreparedStatement ps = AppConnection.conn.prepareStatement("INSERT INTO products(name,description,price,image)" +
                 "values (?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
         ps.setString(1,product.name);
         ps.setString(2,product.description);
         ps.setFloat(3, product.price);
         ps.setString(4,product.image);
-        return ps.executeUpdate();
+        ps.executeUpdate();
+        ResultSet result = ps.getGeneratedKeys();
+        if (result.next()) {
+            return result.getLong(1);
+        }
+        return -1;
 
     }
      public static boolean updateProduct(Product product) throws SQLException {

@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.Collections.ProductCollection;
-import com.company.Models.Product;
-import com.company.handlers.GetProductsHandler;
-import com.company.handlers.SignInHandler;
+import com.company.handlers.*;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -30,6 +27,10 @@ public class Main {
         assert server != null;
         server.createContext("/signin", new SignInHandler());
         server.createContext("/getproducts", new GetProductsHandler());
+        server.createContext("/addproduct", new AddProductHandler());
+        server.createContext("/editproduct", new EditProductHandler());
+        server.createContext("/deleteproduct", new DeleteProductHandler());
+
         server.setExecutor(null); // creates a default executor
         server.start();
 
@@ -68,5 +69,7 @@ public class Main {
             os.close();
         }
     }
+
+
 
 }

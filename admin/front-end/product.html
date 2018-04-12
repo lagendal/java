@@ -8,16 +8,28 @@
 
 </head>
 <body>
-	<table id="products" border="2">
+	 <form border="2">
+	 	
+        <input id="name" placeholder="Name">
+        <input id="description" placeholder="Description">
+        <input id="price" type="number" placeholder="Price">
+        <input id="image" src="" placeholder="Image">
+        <img id="img" width="320" height="240" />
+
+        <button type="button" onclick="save()">Save</button>
+    </form>
+    
+	<table border="2">
 		<thead>
 			<th>ID</th>
 			<th>Название</th>
 			<th>Цена</th>
 			<th>Описание</th>
 			<th>Изображение</th>
+			<th colspan="2">Действия</th>
 		</thead>
-		<tbody>
-			
+		
+			<tbody id="products">
 		</tbody>
 
 
